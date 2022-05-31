@@ -1,0 +1,20 @@
+.carousel-item {
+    text-align: center;
+    padding-top: 3px;
+}
+
+/* Carousel base class */
+.carousel {
+    margin-bottom: 2rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+    height: 20rem;
+}
