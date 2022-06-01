@@ -27,8 +27,8 @@
                 <tr>
                     <th scope="row">{{ ++$numFila }}</th>
                     <td>{{ $factura->idfactura }}</td>
-                    <td>{{ $factura->cliente->nit }}</td>
-                    <td>{{ $factura->cliente->nombre }}</td>
+                    <td>{{ $factura->clientes->nit }}</td>
+                    <td>{{ $factura->clientes->nombre }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="opciones">
                             <a href="/facturas/{{ $factura->idfactura }}/Editar" class="btn btn-warning btn-sm me-2">Editar</a>

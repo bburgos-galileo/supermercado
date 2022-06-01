@@ -12,9 +12,9 @@ class Cliente extends Model
     protected $primaryKey = 'idcliente';
     public $timestamps = false;
 
-    public function cliente()
+    public function clientes()
     {
-        return $this->hasMany(Cliente::class);
+        return $this->hasMany(Clientes::class);
     }
 
 

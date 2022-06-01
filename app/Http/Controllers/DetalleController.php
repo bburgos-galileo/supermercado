@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
-use App\Models\DetalleFactura;
 use Illuminate\Http\Request;
-use App\Models\Facturas;
 
-class FacturaController extends Controller
+class DetalleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,24 +13,17 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $Facturas = Facturas::all();
-
-
-        return view('facturas.index', compact('Facturas'));
+        //
     }
 
-/**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        $Factura = new Facturas();
-        $Detalles = new DetalleFactura();
-        $Clientes = Cliente::all();
-
-        return view('facturas.nuevo', compact(['Factura'],['Clientes'],['Detalles']));
+        //
     }
 
     /**
@@ -44,13 +34,7 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        $Factura = new Facturas();
-        $Factura -> idfactura = $request -> idfactura;
-        $Factura -> idCliente = $request -> idCliente;
-
-        $Factura->save();
-
-        return redirect('/facturas');
+        //
     }
 
     /**
@@ -72,29 +56,19 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        $Factura = Facturas::find($id);
-        $Clientes = Cliente::all();
-        $Detalles = DetalleFactura::where('idfactura', $id)->get();
-
-        return view('facturas.editar', compact(['Factura'],['Clientes'],['Detalles']));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-
-        $Factura = Facturas::find($request -> idfactura);
-        $Factura -> idfactura = $request -> idfactura;
-        $Factura -> idCliente = $request -> idCliente;
-
-        $Factura -> save();
-
-        return redirect("/facturas");
+        //
     }
 
     /**
@@ -105,12 +79,6 @@ class FacturaController extends Controller
      */
     public function destroy($id)
     {
-        $Factura = Facturas::find($id);
-
-        $Factura->delete();
-
-        return redirect("/facturas");
+        //
     }
-
-
 }

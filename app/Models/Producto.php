@@ -16,4 +16,11 @@ class Producto extends Model
     {
         return $this->belongsTo(Marca::class, 'idmarca', 'idmarca');
     }
+
+    public function productos()
+    {
+        return $this->hasMany(Producto::class);
+    }
+
+
 }

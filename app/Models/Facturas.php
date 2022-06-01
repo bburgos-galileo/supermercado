@@ -12,9 +12,14 @@ class Facturas extends Model
     protected $primaryKey = 'idfactura';
     public $timestamps = false;
 
-    public function cliente()
+    public function clientes()
     {
         return $this->belongsTo(Cliente::class, 'idCliente', 'idCliente');
+    }
+
+    public function detalle()
+    {
+        return $this->hasMany(DetalleFactura::class);
     }
 
 }

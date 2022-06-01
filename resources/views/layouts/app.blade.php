@@ -59,7 +59,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="/facturas">Productos</a></li>
+                                    <li><a class="dropdown-item" href="/facturas">Facturación</a></li>
                                 </ul>
                             </li>
                         </ul>
