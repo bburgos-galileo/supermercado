@@ -25,16 +25,14 @@
                             @endforeach
                         </select>
                     </div>
-
-
                     <div class="align-items-rigth d-flex">
                         <div class="btn-toolbar justify-content-right" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group" role="group" aria-label="First group">
                                 <button type="submit"
                                 @if($Factura->idfactura != null) disabled @endif
                                 class="btn btn-sm btn-primary me-2">Guardar</button>
-                                <button type="button" href="/detalles/Nuevo" class="btn btn-sm btn-warning"
-                                @if($Factura->idfactura == null) disabled @endif>Agregar</button>
+                                <a href="/detalles/Nuevo" class="btn btn-sm btn-warning"
+                                @if($Factura->idfactura == null) style="pointer-events: none" @endif>Agregar</a>
                             </div>
                         </div>
                     </div>
