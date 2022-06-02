@@ -31,8 +31,10 @@
                                 <button type="submit"
                                 @if($Factura->idfactura != null) disabled @endif
                                 class="btn btn-sm btn-primary me-2">Guardar</button>
-                                <a href="/detalles/Nuevo" class="btn btn-sm btn-warning"
+
+                                <a href="/detalles/{{ $Factura->idfactura }}/Nuevo" class="btn btn-sm btn-warning"
                                 @if($Factura->idfactura == null) style="pointer-events: none" @endif>Agregar</a>
+
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\DetalleController;
 
 Auth::routes();
 
@@ -61,6 +62,12 @@ Route::controller(FacturaController::class)->group(function () {
     Route::get('/facturas/{id}/Editar', 'edit');
     Route::post('/facturas/{id}/Editar', 'update');
     Route::get('/facturas/{id}/Eliminar', 'destroy');
+});
+
+Route::controller(DetalleController::class)->group(function () {
+    Route::get('/detalles/{id}/Nuevo', 'create');
+    Route::post('/detalles', 'store');
+    Route::get('/detalles/{id}/Eliminar', 'destroy');
 });
 
 

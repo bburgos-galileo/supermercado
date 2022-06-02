@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DetalleFactura;
+use App\Models\Producto;
+use App\Models\Facturas;
+use App\Models\Cliente;
 
 class DetalleController extends Controller
 {
@@ -11,7 +15,7 @@ class DetalleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
     }
@@ -21,9 +25,13 @@ class DetalleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $Detalles = new DetalleFactura();
+        $Detalles -> idfactura = $id;
+        $Productos = Producto::all();
+
+        return view('detalles.nuevo', compact(['Detalles'],['Productos']));
     }
 
     /**
@@ -34,7 +42,28 @@ class DetalleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Detalle = new DetalleFactura();
+        $Producto = Producto::find($request ->idproducto);
+        $Detalle -> idfactura = $request -> idfactura;
+        $Detalle -> idproducto = $request -> idproducto;
+        $Detalle -> cantidad = $request -> cantidad;
+
+        $Subtotal = ($request -> cantidad) * ($Producto -> precio);
+
+        $Detalle -> subtotal = $Subtotal;
+
+        $Detalle->save();
+
+        $Factura = Facturas::find($request -> idfactura);
+
+        $Factura -> total += $Subtotal;
+
+        $Factura -> save();
+
+        $Clientes = Cliente::all();
+        $Detalles = DetalleFactura::where('idfactura', $request -> idfactura)->get();
+
+        return view('facturas.editar', compact(['Factura'],['Clientes'],['Detalles']));
     }
 
     /**
@@ -79,6 +108,11 @@ class DetalleController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $Detalle = DetalleFactura::find($id);
+
+        $Detalle->delete();
+
+        return redirect("/facturas");
     }
 }

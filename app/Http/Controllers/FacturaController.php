@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
-use App\Models\DetalleFactura;
 use Illuminate\Http\Request;
 use App\Models\Facturas;
+use App\Models\Cliente;
+use App\Models\DetalleFactura;
 
 class FacturaController extends Controller
 {
